@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Dashboard for a SaaS application",
+      "imageUrl": "https://images.unsplash.com/photo-1613347761493-4060c969cd28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkYXNoYm9hcmQlMjBhbmFseXRpY3N8ZW58MHx8fHwxNzYzNzA5MDcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dashboard analytics"
+    },
+    {
+      "id": "project-2",
+      "description": "E-commerce website with recommendation engine",
+      "imageUrl": "https://images.unsplash.com/photo-1706958920654-8cf86173e21b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3ZWJzaXRlJTIwZWNvbW1lcmNlfGVufDB8fHx8MTc2MzcwNDY4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "website ecommerce"
+    },
+    {
+      "id": "project-3",
+      "description": "Predictive model for customer churn",
+      "imageUrl": "https://images.unsplash.com/photo-1723987251277-18fc0a1effd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGF0YSUyMGdyYXBofGVufDB8fHx8MTc2MzY1NzE3Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data graph"
+    },
+    {
+      "id": "project-4",
+      "description": "Corporate website for a tech startup",
+      "imageUrl": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3ZWJzaXRlJTIwZGVzaWdufGVufDB8fHx8MTc2MzY4MDAxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "website design"
+    },
+    {
+      "id": "developer-portrait",
+      "description": "Portrait of the developer",
+      "imageUrl": "https://images.unsplash.com/photo-1567324216289-97cc4134f626?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwb3J0cmFpdCUyMG1hbnxlbnwwfHx8fDE3NjM3MDQ0OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait man"
+    }
+  ]
 }
