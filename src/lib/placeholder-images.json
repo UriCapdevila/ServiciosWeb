@@ -27,7 +27,7 @@
     {
       "id": "developer-portrait",
       "description": "Portrait of the developer",
-      "imageUrl": "https://storage.googleapis.com/aifirebase-1222a.appspot.com/studio-input-images/m76Y5U82m3N-Z3h0w5T3C_0.png",
+      "imageUrl": "/images/developer-portrait.png",
       "imageHint": "portrait man"
     }
   ]
