@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Web Data Forge',
+  title: 'Uriel Capdevila',
   description: 'Desarrollo Web impulsado por Datos.',
 };
 

@@ -9,7 +9,7 @@ export function Header() {
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo />
-          <span className="hidden font-bold font-headline sm:inline-block">Web Data Forge</span>
+          <span className="hidden font-bold font-headline sm:inline-block">Uriel Capdevila</span>
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <Button asChild className="font-bold shadow-sm shadow-primary/20">
