@@ -44,7 +44,7 @@ export function AboutMe() {
                 width={400}
                 height={400}
                 data-ai-hint={avatar.imageHint}
-                className="rounded-full object-cover w-[400px] h-[400px] border-4 border-primary/20 shadow-lg shadow-primary/10"
+                className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10"
               />
             )}
           </div>
