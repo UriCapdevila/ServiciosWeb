@@ -38,16 +38,14 @@ export function AboutMe() {
           </div>
           <div className="flex items-center justify-center">
             {avatar && (
-              <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
                 <Image
                   src={avatar.imageUrl}
                   alt="Developer Portrait"
-                  fill
-                  sizes="(max-width: 768px) 300px, 400px"
+                  width={400}
+                  height={400}
                   data-ai-hint={avatar.imageHint}
-                  className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10"
+                  className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10 h-[300px] w-[300px] md:h-[400px] md:w-[400px]"
                 />
-              </div>
             )}
           </div>
         </div>
