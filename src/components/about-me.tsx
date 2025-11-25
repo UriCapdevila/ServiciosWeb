@@ -12,7 +12,7 @@ export function AboutMe() {
             <div className="space-y-3">
               <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary">Sobre Mí</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Soy un desarrollador y científico de datos apasionado por construir productos que no solo funcionen bien, sino que también aporten un valor tangible al negocio.
+                Soy Desarrollador Full Stack con formación en Ciencia de Datos. Combino la ingeniería de software moderna con un enfoque analítico para construir plataformas digitales robustas que resuelven problemas complejos y escalan junto a tu negocio.
               </p>
             </div>
             <ul className="grid gap-4">
@@ -21,8 +21,8 @@ export function AboutMe() {
                   <GraduationCap className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Formación en Ciencia de Datos</h3>
-                  <p className="text-muted-foreground">Mi base académica me permite abordar los problemas desde una perspectiva analítica y basada en evidencia.</p>
+                  <h3 className="text-lg font-semibold">Arquitectura Basada en Datos</h3>
+                  <p className="text-muted-foreground">Integro la lógica de la Ciencia de Datos en el desarrollo web. Esto significa que no solo escribo código, sino que diseño estructuras eficientes, optimizadas y preparadas para manejar información real.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -30,8 +30,8 @@ export function AboutMe() {
                   <Briefcase className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Experiencia Freelance</h3>
-                  <p className="text-muted-foreground">He colaborado con startups y empresas consolidadas, adaptándome a diferentes industrias y desafíos técnicos.</p>
+                  <h3 className="text-lg font-semibold">Ejecución Integral (End-to-End)</h3>
+                  <p className="text-muted-foreground">Mi perfil híbrido me permite cubrir el ciclo completo: desde la base de datos hasta la interfaz de usuario, garantizando soluciones técnicas precisas sin perder de vista los objetivos comerciales.</p>
                 </div>
               </li>
             </ul>
