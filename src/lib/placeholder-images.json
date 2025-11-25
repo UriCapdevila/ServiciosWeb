@@ -27,7 +27,7 @@
     {
       "id": "developer-portrait",
       "description": "Portrait of the developer",
-      "imageUrl": "/FotoPerfil.jpg",
+      "imageUrl": "/images/FotoPerfil.jpg",
       "imageHint": "portrait man"
     }
   ]
