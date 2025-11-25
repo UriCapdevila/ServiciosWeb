@@ -38,12 +38,12 @@ export function AboutMe() {
           </div>
           <div className="flex items-center justify-center">
             {avatar && (
-              <div className="relative w-[400px] h-[400px]">
+              <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
                 <Image
                   src={avatar.imageUrl}
                   alt="Developer Portrait"
-                  width={400}
-                  height={400}
+                  fill
+                  sizes="(max-width: 768px) 300px, 400px"
                   data-ai-hint={avatar.imageHint}
                   className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10"
                 />
