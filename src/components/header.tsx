@@ -13,7 +13,7 @@ export function Header() {
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <Button asChild className="font-bold shadow-sm shadow-primary/20">
-            <a href="mailto:hola@webdataforge.com">
+            <a href="mailto:hola@urielcapdevila.com">
               <Mail className="mr-2 h-4 w-4" /> Hablemos
             </a>
           </Button>
