@@ -5,9 +5,6 @@ import { Toaster } from '@/components/ui/toaster';
 export const metadata: Metadata = {
   title: 'Uriel Capdevila',
   description: 'Desarrollo Web inteligente.',
-  icons: {
-    icon: 'public/images/UCicon.png',
-  },
 };
 
 export default function RootLayout({
@@ -18,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark scroll-smooth">
       <head>
+        <link rel="icon" href="/images/UCicon.png" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
