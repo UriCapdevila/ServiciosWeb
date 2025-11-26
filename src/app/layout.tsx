@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Uriel Capdevila',
   description: 'Desarrollo Web impulsado por Datos.',
   icons: {
-    icon: '/images/UCicon.png',
+    icon: 'public/images/UCicon.png',
   },
 };
 
