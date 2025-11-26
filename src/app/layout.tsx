@@ -5,6 +5,9 @@ import { Toaster } from '@/components/ui/toaster';
 export const metadata: Metadata = {
   title: 'Uriel Capdevila',
   description: 'Desarrollo Web impulsado por Datos.',
+  icons: {
+    icon: 'https://storage.googleapis.com/aifirebase-1222a.appspot.com/studio-input-images/hY3qFm9U2N5Y12Vq55R6q_0.png',
+  },
 };
 
 export default function RootLayout({
