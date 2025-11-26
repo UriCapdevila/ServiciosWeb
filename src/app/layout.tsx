@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Uriel Capdevila',
-  description: 'Desarrollo Web impulsado por Datos.',
+  description: 'Desarrollo Web inteligente.',
   icons: {
     icon: 'public/images/UCicon.png',
   },
