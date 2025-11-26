@@ -5,17 +5,17 @@ const features = [
   {
     icon: <Code className="h-10 w-10 text-primary" />,
     title: 'Desarrollo a Medida',
-    description: 'Construyo soluciones web rápidas, escalables y optimizadas, desde landing pages hasta SaaS complejos.',
+    description: 'Soluciones versátiles: desde sitios web de alto impacto hasta plataformas SaaS. Construyo bases digitales sólidas y optimizadas, listas para escalar cuando tu negocio lo requiera.',
   },
   {
     icon: <DatabaseZap className="h-10 w-10 text-primary" />,
     title: 'Inteligencia de Datos',
-    description: 'Extraigo valor de tus datos: dashboards, análisis predictivo y automatización de procesos con IA.',
+    description: 'No dejes que tus datos se pierdan. Integro analítica avanzada y dashboards interactivos en tus proyectos para que visualices el rendimiento real y detectes nuevas oportunidades.',
   },
   {
     icon: <BrainCircuit className="h-10 w-10 text-primary" />,
     title: 'Estrategia Integral',
-    description: 'Uno la tecnología con tus objetivos de negocio para crear productos digitales que generan un impacto real.',
+    description: 'Conecto la tecnología con tus metas. Ya sea que estés validando una idea o expandiendo operaciones, diseño la arquitectura técnica que tu etapa actual necesita.',
   },
 ];
 

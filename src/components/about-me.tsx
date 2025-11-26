@@ -12,7 +12,7 @@ export function AboutMe() {
             <div className="space-y-3">
               <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary">Sobre Mí</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Soy Desarrollador Full Stack con formación en Ciencia de Datos. Combino la ingeniería de software moderna con un enfoque analítico para construir plataformas digitales robustas que resuelven problemas complejos y escalan junto a tu negocio.
+                Soy Desarrollador Full Stack con formación universitaria en Ciencia de Datos. Combino el desarrollo web moderno con un enfoque analítico para construir plataformas digitales robustas que resuelven problemas y escalan junto a tu negocio.
               </p>
             </div>
             <ul className="grid gap-4">

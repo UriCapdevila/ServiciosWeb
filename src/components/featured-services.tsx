@@ -1,10 +1,10 @@
 import { AppWindow, BarChart, Bot, Rocket } from 'lucide-react';
 
 const services = [
-  { icon: <Rocket className="h-8 w-8" />, name: 'Creación de Landing Pages' },
-  { icon: <AppWindow className="h-8 w-8" />, name: 'Aplicaciones Web (SaaS)' },
+  { icon: <Rocket className="h-8 w-8" />, name: 'Landing Pages Estratégicas' },
+  { icon: <AppWindow className="h-8 w-8" />, name: 'Desarrollo de Plataformas & SaaS' },
   { icon: <BarChart className="h-8 w-8" />, name: 'Análisis de Datos & Reportes' },
-  { icon: <Bot className="h-8 w-8" />, name: 'Integración de IA' },
+  { icon: <Bot className="h-8 w-8" />, name: 'Soluciones con IA' },
 ];
 
 export function FeaturedServices() {
@@ -14,7 +14,7 @@ export function FeaturedServices() {
         <div className="text-center space-y-3 mb-12">
           <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl text-primary">Servicios Destacados</h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-            Soluciones tecnológicas diseñadas para llevar tu negocio al siguiente nivel.
+            Soluciones tecnológicas escalables para cada etapa de tu crecimiento.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
