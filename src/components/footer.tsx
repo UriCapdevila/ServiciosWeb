@@ -39,7 +39,7 @@ export function Footer() {
             </a>
           </Button>
           <Button size="sm" asChild>
-            <a href="mailto:hola@urielcapdevila.com">
+            <a href="mailto:Uri_Capdevila@outlook.com">
               <Mail className="h-4 w-4 mr-2" /> Email
             </a>
           </Button>

@@ -36,4 +36,4 @@ Este proyecto fue construido utilizando un stack de tecnologías moderno y orien
 
 *   **LinkedIn**: [Uriel Capdevila](https://www.linkedin.com/in/uriel-capdevila0024/)
 *   **GitHub**: [@UriCapdevila](https://github.com/UriCapdevila)
-*   **Email**: hola@urielcapdevila.com
+*   **Email**: Uri_Capdevila@outlook.com
