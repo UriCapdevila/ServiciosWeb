@@ -14,7 +14,7 @@ export function Hero() {
           </p>
           <div className="pt-6">
             <Button size="lg" className="font-bold shadow-lg shadow-primary/20" asChild>
-              <a href="mailto:Uri_Capdevila@outlook.com">
+              <a href="mailto:Uri_CapdevilaWRK@outlook.com">
                 <Mail className="mr-2 h-5 w-5" /> Hablemos de tu proyecto
               </a>
             </Button>
