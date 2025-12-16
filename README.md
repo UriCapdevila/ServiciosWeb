@@ -32,54 +32,6 @@ Este proyecto fue construido utilizando un stack de tecnologías moderno y orien
 *   **Inteligencia Artificial**: [**Google Genkit (con Gemini)**](https://firebase.google.com/docs/genkit) - Framework para crear flujos de IA robustos y listos para producción.
 *   **Hosting**: [**Firebase App Hosting**](https://firebase.google.com/docs/app-hosting) - Para un despliegue continuo, escalable y seguro.
 
----
-
-## 🚀 Cómo Empezar
-
-Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
-
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone https://github.com/tu-usuario/tu-repositorio.git
-    cd tu-repositorio
-    ```
-
-2.  **Instalar dependencias:**
-    Este proyecto utiliza `npm` para la gestión de paquetes.
-    ```bash
-    npm install
-    ```
-
-3.  **Configurar variables de entorno:**
-    Si planeas utilizar las funcionalidades de IA, necesitarás una clave de API de Google. Crea un archivo `.env.local` en la raíz del proyecto y añade tu clave:
-    ```
-    GEMINI_API_KEY=TU_API_KEY_AQUI
-    ```
-
-4.  **Ejecutar el servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
-    Abre [http://localhost:9002](http://localhost:9002) en tu navegador para ver el resultado.
-
----
-
-## 📂 Estructura del Proyecto
-
-El código está organizado para promover la escalabilidad y la claridad:
-
-```
-/
-├── src/
-│   ├── app/         # Rutas, páginas y layouts principales (Next.js App Router).
-│   ├── components/  # Componentes de React reutilizables (UI y de lógica).
-│   ├── lib/         # Funciones de utilidad, hooks y datos estáticos.
-│   └── ai/          # Flujos de Genkit y lógica de inteligencia artificial.
-└── public/          # Archivos estáticos como imágenes y favicons.
-```
-
----
-
 ## 📬 Contacto
 
 *   **LinkedIn**: [Uriel Capdevila](https://www.linkedin.com/in/uriel-capdevila0024/)
