@@ -32,11 +32,11 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Web Corporativa',
-    description: 'Sitio web de marketing para una startup de inteligencia artificial.',
-    tags: ['Next.js', 'Contentful', 'GraphQL'],
+    title: 'Web Comercial',
+    description: 'Sitio web de marketing para un emprendimiento de Amigurumis.',
+    tags: ['Next.js', 'Tailwind CSS', 'React'],
     imageUrlId: 'project-4',
-    liveUrl: '#',
+    liveUrl: 'https://verotejiditosonline.netlify.app/',
   },
 ];
 
