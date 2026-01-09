@@ -4,8 +4,7 @@
 
 Este repositorio contiene el código fuente de mi portfolio personal, una plataforma web moderna y escalable construida para demostrar mis habilidades en desarrollo Full Stack y mi especialización en la integración de soluciones de datos e inteligencia artificial.
 
-**[Ver el sitio en vivo](https://urielcapdevilaservicios.netlify.app/)** (Recuerda reemplazar esta URL)
-
+**[Ver el sitio en vivo](https://urielcapdevilaservicios.netlify.app/)** 
 ---
 
 ## ✨ Características Principales
