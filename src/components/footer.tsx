@@ -34,7 +34,7 @@ export function Footer() {
             </a>
           </Button>
           <Button variant="outline" size="sm" asChild>
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/+5491157267816" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-4 w-4 mr-2" /> WhatsApp
             </a>
           </Button>
