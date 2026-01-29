@@ -9,7 +9,7 @@ import { ValueProposition } from "@/components/value-proposition";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+    <div className="relative flex min-h-screen flex-col text-foreground">
       <AnimatedBackground />
       <Header />
       <main className="z-10 flex-1">
