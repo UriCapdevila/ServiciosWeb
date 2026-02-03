@@ -1,51 +1,94 @@
+'use client';
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { GraduationCap, Briefcase } from 'lucide-react';
+import { Button } from './ui/button';
+import { Linkedin, Download, Github } from 'lucide-react';
+import { Badge } from './ui/badge';
+
+const skills = [
+  'Python',
+  'SQL',
+  'JavaScript',
+  'React',
+  'Next.js',
+  'Tailwind CSS',
+  'Pandas',
+  'Power BI',
+  'Git',
+  'APIs REST',
+];
 
 export function AboutMe() {
   const avatar = PlaceHolderImages.find(p => p.id === 'developer-portrait');
   return (
-    <section id="about" className="py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-center">
+    <section id="about" className="relative py-12 md:py-24 lg:py-32 bg-card/50 overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 z-0 opacity-5">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_hsl(var(--primary)),_transparent_40%)]" />
+        </div>
+
+      <div className="container px-4 md:px-6 z-10 relative">
+        <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-start">
           <div className="flex flex-col justify-center space-y-6">
-            <div className="space-y-3">
-              <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary">Sobre Mí</h2>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Soy Desarrollador Full Stack con formación universitaria en Ciencia de Datos. Combino el desarrollo web moderno con un enfoque analítico para construir plataformas digitales robustas que resuelven problemas y escalan junto a tu negocio.
+            <div className="space-y-4">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">
+                Uriel Emanuel Alejandro Capdevila
+              </div>
+              <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary">Conoce al Profesional detrás del Código</h2>
+              <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
+              Soy un desarrollador híbrido con una misión: transformar datos en soluciones de negocio y construir la tecnología que las impulsa.
               </p>
             </div>
-            <ul className="grid gap-4">
-              <li className="flex items-start gap-4">
-                <div className="bg-accent/10 p-2 rounded-full mt-1">
-                  <GraduationCap className="w-5 h-5 text-accent" />
+            <div className="text-muted-foreground space-y-4 text-lg">
+                <p>
+                Como estudiante avanzado de Ciencia de Datos y Desarrollador Full Stack, combino la analítica de negocio con la programación (Python, SQL, JavaScript) para optimizar procesos, automatizar tareas y crear visualizaciones de datos que realmente aportan valor.
+                </p>
+                <p>
+                Mi experiencia en gestión administrativa me ha enseñado a entender el negocio desde adentro, mientras que mi pasión por la tecnología me lleva a buscar siempre la mejor solución técnica.
+                </p>
+            </div>
+            <div className="space-y-4">
+                <h3 className="text-xl font-semibold font-headline">Mis Herramientas</h3>
+                <div className="flex flex-wrap gap-2">
+                    {skills.map((skill) => (
+                        <Badge key={skill} variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-md">
+                            {skill}
+                        </Badge>
+                    ))}
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold">Arquitectura Basada en Datos</h3>
-                  <p className="text-muted-foreground">Integro la lógica de la Ciencia de Datos en el desarrollo web. Esto significa que no solo escribo código, sino que diseño estructuras eficientes, optimizadas y preparadas para manejar información real.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="bg-accent/10 p-2 rounded-full mt-1">
-                  <Briefcase className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">Ejecución Integral (End-to-End)</h3>
-                  <p className="text-muted-foreground">Mi perfil híbrido me permite cubrir el ciclo completo: desde la base de datos hasta la interfaz de usuario, garantizando soluciones técnicas precisas sin perder de vista los objetivos comerciales.</p>
-                </div>
-              </li>
-            </ul>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <Button asChild size="lg">
+                <a href="https://www.linkedin.com/in/uriel-capdevila0024/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="https://github.com/UriCapdevila" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-5 w-5" /> GitHub
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="ghost">
+                <a href="/cv-uriel-capdevila.pdf" download>
+                  <Download className="mr-2 h-5 w-5" /> Descargar CV
+                </a>
+              </Button>
+            </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-12 md:pt-0">
             {avatar && (
-                <Image
-                  src={avatar.imageUrl}
-                  alt="Developer Portrait"
-                  width={400}
-                  height={400}
-                  data-ai-hint={avatar.imageHint}
-                  className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10 h-[300px] w-[300px] md:h-[400px] md:w-[400px]"
-                />
+                <div className="relative h-[300px] w-[300px] md:h-[400px] md:w-[400px]">
+                    <Image
+                    src={avatar.imageUrl}
+                    alt="Uriel Capdevila Portrait"
+                    width={400}
+                    height={400}
+                    data-ai-hint={avatar.imageHint}
+                    className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10"
+                    />
+                    <div className="absolute inset-0 rounded-full border-4 border-primary/20 animate-pulse-slow"/>
+                </div>
             )}
           </div>
         </div>

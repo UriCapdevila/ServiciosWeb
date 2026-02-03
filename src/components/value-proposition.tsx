@@ -1,37 +1,57 @@
-import { BrainCircuit, Code, DatabaseZap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import {
+  BentoCard,
+  BentoCardContent,
+  BentoCardDescription,
+  BentoCardHeader,
+  BentoCardTitle,
+  BentoGrid,
+} from "./ui/bento-grid";
+import { Code, Database, BrainCircuit } from "lucide-react";
 
 const features = [
   {
-    icon: <Code className="h-10 w-10 text-primary" />,
-    title: 'Desarrollo a Medida',
-    description: 'Soluciones versátiles: desde sitios web de alto impacto hasta plataformas SaaS. Construyo bases digitales sólidas y optimizadas, listas para escalar cuando tu negocio lo requiera.',
+    Icon: Code,
+    name: "Desarrollo a Medida",
+    description: "Soluciones versátiles: desde sitios web de alto impacto hasta plataformas SaaS. Construyo bases digitales sólidas y optimizadas, listas para escalar cuando tu negocio lo requiera.",
+    className: "col-span-1 lg:col-span-1",
+    background: <img alt="gradient" className="absolute -right-20 -top-20 opacity-60" src="/gradient.png" />,
   },
   {
-    icon: <DatabaseZap className="h-10 w-10 text-primary" />,
-    title: 'Inteligencia de Datos',
-    description: 'No dejes que tus datos se pierdan. Integro analítica avanzada y dashboards interactivos en tus proyectos para que visualices el rendimiento real y detectes nuevas oportunidades.',
+    Icon: Database,
+    name: "Inteligencia de Datos",
+    description: "No dejes que tus datos se pierdan. Integro analítica avanzada y dashboards interactivos para que visualices el rendimiento real y detectes nuevas oportunidades.",
+    className: "col-span-1 lg:col-span-1",
+    background: <img alt="gradient" className="absolute -right-20 -top-20 opacity-60" src="/gradient.png" />,
   },
   {
-    icon: <BrainCircuit className="h-10 w-10 text-primary" />,
-    title: 'Estrategia Integral',
-    description: 'Conecto la tecnología con tus metas. Ya sea que estés validando una idea o expandiendo operaciones, diseño la arquitectura técnica que tu etapa actual necesita.',
+    Icon: BrainCircuit,
+    name: "Estrategia Integral",
+    description: "Conecto la tecnología con tus metas. Ya sea que estés validando una idea o expandiendo operaciones, diseño la arquitectura técnica que tu etapa actual necesita.",
+    className: "col-span-1 lg:col-span-2",
+    background: <img alt="gradient" className="absolute -right-20 -top-20 opacity-60" src="/gradient.png" />,
   },
 ];
 
 export function ValueProposition() {
   return (
-    <section className="py-12 md:py-24 lg:py-32 bg-card/50">
+    <section className="py-24">
       <div className="container px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-center space-y-4">
-               {feature.icon}
-              <h3 className="text-2xl font-bold font-headline">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </div>
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 font-headline">
+          Una Propuesta de Valor Diferencial
+        </h2>
+        <BentoGrid className="lg:grid-cols-2">
+          {features.map(({ Icon, name, description, className, background }) => (
+            <BentoCard key={name} className={className} background={background}>
+              <BentoCardContent>
+                <BentoCardHeader>
+                  <Icon className="h-8 w-8 text-primary" />
+                  <BentoCardTitle>{name}</BentoCardTitle>
+                </BentoCardHeader>
+                <BentoCardDescription>{description}</BentoCardDescription>
+              </BentoCardContent>
+            </BentoCard>
           ))}
-        </div>
+        </BentoGrid>
       </div>
     </section>
   );

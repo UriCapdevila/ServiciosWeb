@@ -1,13 +1,16 @@
 import { Button } from "./ui/button";
 import { Mail } from "lucide-react";
+import { HeroBackground } from "./hero-background";
+import { AnimatedWord } from "./animated-word";
 
 export function Hero() {
   return (
-    <section className="relative w-full py-24 md:py-32 lg:py-40">
-      <div className="container px-4 md:px-6 text-center">
+    <section className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
+      <HeroBackground />
+      <div className="relative z-10 container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-4">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-            Desarrollo Web <span className="text-primary">Inteligente</span>
+          <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+            Desarrollo Web <span className="text-primary"><AnimatedWord /></span>
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
           No solo escribo código; construyo soluciones. Fusiono desarrollo moderno con análisis de datos para crear plataformas que no solo se ven bien, sino que transforman información en decisiones estratégicas.
@@ -21,6 +24,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

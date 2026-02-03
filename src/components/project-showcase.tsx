@@ -1,8 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Code } from 'lucide-react';
 import { Card } from './ui/card';
 
 const projects = [
@@ -13,6 +15,7 @@ const projects = [
     tags: ['React', 'Next.js', 'Tailwind', 'D3.js'],
     imageUrlId: 'project-1',
     liveUrl: '#',
+    sourceCodeUrl: '#',
   },
   {
     id: 2,
@@ -21,6 +24,7 @@ const projects = [
     tags: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
     imageUrlId: 'project-2',
     liveUrl: '#',
+    sourceCodeUrl: '#',
   },
   {
     id: 3,
@@ -37,8 +41,56 @@ const projects = [
     tags: ['Next.js', 'Tailwind CSS', 'React'],
     imageUrlId: 'project-4',
     liveUrl: 'https://verotejiditosonline.netlify.app/',
+    sourceCodeUrl: '#',
   },
 ];
+
+const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
+  const placeholder = PlaceHolderImages.find(p => p.id === project.imageUrlId);
+
+  return (
+    <Card
+      key={project.id}
+      className="overflow-hidden group border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 flex flex-col"
+    >
+      <div className="relative aspect-video overflow-hidden">
+        {placeholder && (
+          <Image
+            src={placeholder.imageUrl}
+            alt={project.title}
+            width={600}
+            height={400}
+            data-ai-hint={placeholder.imageHint}
+            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
+      </div>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-2xl font-bold font-headline">{project.title}</h3>
+        <p className="text-muted-foreground mt-2 flex-grow">{project.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.tags.map(tag => (
+            <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">{tag}</Badge>
+          ))}
+        </div>
+        <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-4">
+          <Button asChild className="flex-1">
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              Ver Proyecto <ArrowUpRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+          {project.sourceCodeUrl && (
+            <Button asChild variant="secondary" className="flex-1">
+              <a href={project.sourceCodeUrl} target="_blank" rel="noopener noreferrer">
+                <Code className="mr-2 h-4 w-4" /> Código Fuente
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+    </Card>
+  );
+};
 
 export function ProjectShowcase() {
   return (
@@ -47,43 +99,13 @@ export function ProjectShowcase() {
         <div className="text-center space-y-3 mb-12">
           <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">Portafolio Seleccionado</h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-          Una muestra de arquitecturas web escalables y sistemas de análisis de datos en producción.
+            Una muestra de arquitecturas web escalables y sistemas de análisis de datos en producción.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => {
-            const placeholder = PlaceHolderImages.find(p => p.id === project.imageUrlId);
-            return (
-              <Card key={project.id} className="overflow-hidden group border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10">
-                <div className="relative aspect-video overflow-hidden">
-                  {placeholder && (
-                    <Image
-                      src={placeholder.imageUrl}
-                      alt={project.title}
-                      width={600}
-                      height={400}
-                      data-ai-hint={placeholder.imageHint}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    />
-                  )}
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold font-headline">{project.title}</h3>
-                  <p className="text-muted-foreground mt-2">{project.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">{tag}</Badge>
-                    ))}
-                  </div>
-                  <Button variant="link" asChild className="mt-4 p-0 text-primary hover:text-accent">
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      Ver en vivo <ArrowUpRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                </div>
-              </Card>
-            );
-          })}
+          {projects.map(project => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </section>
