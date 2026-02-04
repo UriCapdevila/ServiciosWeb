@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { ArrowUpRight, Code } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Card } from './ui/card';
 
 const projects = [
@@ -15,7 +15,6 @@ const projects = [
     tags: ['React', 'Next.js', 'Tailwind', 'D3.js'],
     imageUrlId: 'project-1',
     liveUrl: '#',
-    sourceCodeUrl: '#',
   },
   {
     id: 2,
@@ -24,7 +23,6 @@ const projects = [
     tags: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
     imageUrlId: 'project-2',
     liveUrl: '#',
-    sourceCodeUrl: '#',
   },
   {
     id: 3,
@@ -41,12 +39,12 @@ const projects = [
     tags: ['Next.js', 'Tailwind CSS', 'React'],
     imageUrlId: 'project-4',
     liveUrl: 'https://verotejiditosonline.netlify.app/',
-    sourceCodeUrl: '#',
   },
 ];
 
 const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   const placeholder = PlaceHolderImages.find(p => p.id === project.imageUrlId);
+  const isComingSoon = project.id === 1 || project.id === 2;
 
   return (
     <Card
@@ -74,15 +72,14 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
           ))}
         </div>
         <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-4">
-          <Button asChild className="flex-1">
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-              Ver Proyecto <ArrowUpRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-          {project.sourceCodeUrl && (
-            <Button asChild variant="secondary" className="flex-1">
-              <a href={project.sourceCodeUrl} target="_blank" rel="noopener noreferrer">
-                <Code className="mr-2 h-4 w-4" /> Código Fuente
+          {isComingSoon ? (
+            <Button disabled className="flex-1">
+              Próximamente
+            </Button>
+          ) : (
+            <Button asChild className="flex-1">
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                Ver Proyecto <ArrowUpRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           )}

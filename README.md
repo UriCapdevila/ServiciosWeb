@@ -11,6 +11,8 @@ Este repositorio contiene el código fuente de mi portfolio personal, una plataf
 
 *   **Diseño Moderno y Responsivo**: Experiencia de usuario fluida en cualquier dispositivo, construida con Tailwind CSS y ShadCN/UI.
 *   **Arquitectura Escalable**: Basado en Next.js App Router, utilizando Server Components para un rendimiento óptimo.
+*   **Refinamiento Visual y Microinteracciones**: Sutiles efectos de "lupa" (zoom al pasar el cursor) en los títulos de las secciones que mejoran la experiencia de usuario y aportan dinamismo.
+*   **Portfolio Actualizado**: Tarjetas de proyecto rediseñadas para mostrar trabajos "Próximamente" y proteger la privacidad de los clientes, eliminando enlaces al código fuente.
 *   **Integración de IA (próximamente)**: Preparado para incorporar funcionalidades de IA generativa con Google Gemini a través de Genkit.
 *   **Código Limpio y Mantenible**: Escrito en TypeScript, siguiendo las mejores prácticas para garantizar la calidad y la facilidad de mantenimiento.
 
