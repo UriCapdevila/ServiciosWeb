@@ -11,7 +11,7 @@ export function AnimatedWord() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2000);
+    }, 3000); // Aumentado de 2000ms a 3000ms
     return () => clearInterval(interval);
   }, []);
 
@@ -22,7 +22,7 @@ export function AnimatedWord() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8 }} // Aumentado de 0.5s a 0.8s
         className="inline-block"
       >
         {words[index]}

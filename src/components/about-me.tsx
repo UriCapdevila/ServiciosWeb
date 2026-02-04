@@ -35,7 +35,7 @@ export function AboutMe() {
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">
                 Uriel Emanuel Alejandro Capdevila
               </div>
-              <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary">Conoce al Profesional detrás del Código</h2>
+              <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary transition-transform duration-300 ease-in-out hover:scale-105">Conoce al Profesional detrás del Código</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
               Soy un desarrollador híbrido con una misión: transformar datos en soluciones de negocio y construir la tecnología que las impulsa.
               </p>
@@ -70,7 +70,7 @@ export function AboutMe() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="ghost">
-                <a href="/cv-uriel-capdevila.pdf" download>
+                <a href="/URIELCAPDEVILACV.pdf" download>
                   <Download className="mr-2 h-5 w-5" /> Descargar CV
                 </a>
               </Button>

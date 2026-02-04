@@ -36,7 +36,7 @@ export function ValueProposition() {
   return (
     <section className="py-24">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 font-headline">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 font-headline transition-transform duration-300 ease-in-out hover:scale-105">
           Una Propuesta de Valor Diferencial
         </h2>
         <BentoGrid className="lg:grid-cols-2">

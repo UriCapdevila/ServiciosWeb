@@ -97,7 +97,7 @@ export function ProjectShowcase() {
     <section id="projects" className="py-12 md:py-24 lg:py-32 bg-card/50">
       <div className="container px-4 md:px-6">
         <div className="text-center space-y-3 mb-12">
-          <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">Portafolio Seleccionado</h2>
+          <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl transition-transform duration-300 ease-in-out hover:scale-105">Portafolio Seleccionado</h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
             Una muestra de arquitecturas web escalables y sistemas de análisis de datos en producción.
           </p>

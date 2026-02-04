@@ -1,9 +1,15 @@
+'use client';
+
 import { Button } from "./ui/button";
 import { Mail } from "lucide-react";
 import { HeroBackground } from "./hero-background";
 import { AnimatedWord } from "./animated-word";
 
 export function Hero() {
+  const handleContactClick = () => {
+    window.location.href = "mailto:Uri_CapdevilaWRK@outlook.com";
+  };
+
   return (
     <section className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
       <HeroBackground />
@@ -16,10 +22,8 @@ export function Hero() {
           No solo escribo código; construyo soluciones. Fusiono desarrollo moderno con análisis de datos para crear plataformas que no solo se ven bien, sino que transforman información en decisiones estratégicas.
           </p>
           <div className="pt-6">
-            <Button size="lg" className="font-bold shadow-lg shadow-primary/20" asChild>
-              <a href="mailto:Uri_CapdevilaWRK@outlook.com">
-                <Mail className="mr-2 h-5 w-5" /> Hablemos de tu proyecto
-              </a>
+            <Button size="lg" className="font-bold shadow-lg shadow-primary/20" onClick={handleContactClick}>
+              <Mail className="mr-2 h-5 w-5" /> Hablemos de tu proyecto
             </Button>
           </div>
         </div>
