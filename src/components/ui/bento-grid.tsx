@@ -1,10 +1,10 @@
 'use client';
+
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import React, { PropsWithChildren, useRef } from 'react';
+import React, { PropsWithChildren } from 'react';
 
-export interface BentoGridProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type BentoGridProps = React.HTMLAttributes<HTMLDivElement>;
 
 const BentoGrid = React.forwardRef<HTMLDivElement, BentoGridProps>(({ className, ...props }, ref) => {
   return (
@@ -48,45 +48,54 @@ export interface BentoCardProps
 }
 
 const BentoCard = React.forwardRef<HTMLDivElement, BentoCardProps>(
-  ({ className, children, variant, size, background, ...props }, ref) => {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const ElemRef = useRef<HTMLDivElement>(null);
+  (
+    {
+      className,
+      children,
+      variant,
+      size,
+      background,
+      onPointerMove,
+      onPointerLeave,
+      ...props
+    },
+    ref,
+  ) => {
+    const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+      onPointerMove?.(event);
+      if (event.defaultPrevented || event.pointerType === 'touch') return;
 
-    const springConfig = { damping: 15, stiffness: 200 };
-    const mouseXSpring = useSpring(mouseX, springConfig);
-    const mouseYSpring = useSpring(mouseY, springConfig);
+      const { left, top } = event.currentTarget.getBoundingClientRect();
+      event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - left}px`);
+      event.currentTarget.style.setProperty('--pointer-y', `${event.clientY - top}px`);
+    };
 
-    const backgroundGradient = useTransform(
-      [mouseXSpring, mouseYSpring],
-      ([x, y]) =>
-        `radial-gradient(400px circle at ${x}px ${y}px, rgba(13, 186, 184, 0.15), transparent 80%)`
-    );
-
-    function handleMouseMove({ clientX, clientY, currentTarget }: React.MouseEvent) {
-      const { left, top } = currentTarget.getBoundingClientRect();
-      mouseX.set(clientX - left);
-      mouseY.set(clientY - top);
-    }
+    const handlePointerLeave = (event: React.PointerEvent<HTMLDivElement>) => {
+      onPointerLeave?.(event);
+      event.currentTarget.style.removeProperty('--pointer-x');
+      event.currentTarget.style.removeProperty('--pointer-y');
+    };
 
     return (
-      <motion.div
-        ref={ElemRef}
+      <div
+        ref={ref}
         {...props}
         className={cn(bentoCardVariants({ variant, size, className }))}
-        onMouseMove={handleMouseMove}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
       >
-        <div className="absolute inset-0 ">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(400px circle at var(--pointer-x, 85%) var(--pointer-y, 15%), hsl(var(--primary) / 0.15), transparent 80%)',
+          }}
+        >
           {background}
-          <motion.div
-            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            style={{
-              background: backgroundGradient,
-            }}
-          />
         </div>
         <div className="relative z-20">{children}</div>
-      </motion.div>
+      </div>
     );
   }
 );

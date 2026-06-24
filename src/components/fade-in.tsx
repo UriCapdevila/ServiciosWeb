@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 interface FadeInChildrenProps {
   children: React.ReactNode;
@@ -12,6 +13,9 @@ export function FadeInChildren({ children, className }: FadeInChildrenProps) {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = elementRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -24,21 +28,17 @@ export function FadeInChildren({ children, className }: FadeInChildrenProps) {
       { threshold: 0.1 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+    observer.observe(element);
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
+      observer.disconnect();
     };
   }, []);
 
   return (
     <div
       ref={elementRef}
-      className={`${className} ${isVisible ? 'fade-in' : 'opacity-0'}`}
+      className={cn(isVisible ? 'fade-in' : 'opacity-0', className)}
     >
       {children}
     </div>

@@ -1,11 +1,22 @@
-'use client';
-
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ArrowUpRight } from 'lucide-react';
 import { Card } from './ui/card';
+
+type ProjectBase = {
+  id: number;
+  title: string;
+  description: string;
+  tags: readonly string[];
+  imageUrlId: string;
+};
+
+type Project = ProjectBase & (
+  | { status: 'coming-soon' }
+  | { status: 'live'; liveUrl: string }
+);
 
 const projects = [
   {
@@ -14,7 +25,7 @@ const projects = [
     description: 'Plataforma de análisis de datos para un cliente del sector financiero.',
     tags: ['React', 'Next.js', 'Tailwind', 'D3.js'],
     imageUrlId: 'project-1',
-    liveUrl: '#',
+    status: 'coming-soon',
   },
   {
     id: 2,
@@ -22,7 +33,7 @@ const projects = [
     description: 'Tienda online con motor de recomendaciones personalizado.',
     tags: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
     imageUrlId: 'project-2',
-    liveUrl: '#',
+    status: 'coming-soon',
   },
   {
     id: 3,
@@ -30,7 +41,7 @@ const projects = [
     description: 'Sistema de predicción de abandono de clientes para una telco.',
     tags: ['Scikit-learn', 'Pandas', 'Flask'],
     imageUrlId: 'project-3',
-    liveUrl: '#',
+    status: 'coming-soon',
   },
   {
     id: 4,
@@ -39,12 +50,12 @@ const projects = [
     tags: ['Next.js', 'Tailwind CSS', 'React'],
     imageUrlId: 'project-4',
     liveUrl: 'https://verotejiditosonline.netlify.app/',
+    status: 'live',
   },
-];
+] satisfies readonly Project[];
 
-const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   const placeholder = PlaceHolderImages.find(p => p.id === project.imageUrlId);
-  const isComingSoon = project.id === 1 || project.id === 2;
 
   return (
     <Card
@@ -58,6 +69,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
             alt={project.title}
             width={600}
             height={400}
+            sizes="(min-width: 768px) 50vw, 100vw"
             data-ai-hint={placeholder.imageHint}
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
           />
@@ -72,7 +84,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
           ))}
         </div>
         <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-4">
-          {isComingSoon ? (
+          {project.status === 'coming-soon' ? (
             <Button disabled className="flex-1">
               Próximamente
             </Button>
@@ -91,10 +103,10 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
 
 export function ProjectShowcase() {
   return (
-    <section id="projects" className="py-12 md:py-24 lg:py-32 bg-card/50">
+    <section id="projects" aria-labelledby="projects-title" className="scroll-mt-16 bg-card/50 py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
         <div className="text-center space-y-3 mb-12">
-          <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl transition-transform duration-300 ease-in-out hover:scale-105">Portafolio Seleccionado</h2>
+          <h2 id="projects-title" className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">Portafolio seleccionado</h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
             Una muestra de arquitecturas web escalables y sistemas de análisis de datos en producción.
           </p>

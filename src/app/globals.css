@@ -68,6 +68,11 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: hsl(var(--foreground));
+  }
 }
 
 @layer utilities {
@@ -92,47 +97,66 @@
   .fade-in {
     animation: fadeIn 0.5s ease-out forwards;
   }
+
+  @keyframes wordCycle {
+    0%,
+    27% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    33%,
+    94% {
+      opacity: 0;
+      transform: translateY(0.35em);
+    }
+    95%,
+    100% {
+      opacity: 0;
+      transform: translateY(-0.35em);
+    }
+  }
+
+  .animated-word {
+    display: inline-grid;
+    vertical-align: bottom;
+  }
+
+  .animated-word__item {
+    grid-area: 1 / 1;
+    opacity: 0;
+    animation: wordCycle 9s ease-in-out infinite;
+  }
+
+  .animated-word__item:nth-child(2) {
+    animation-delay: 3s;
+  }
+
+  .animated-word__item:nth-child(3) {
+    animation-delay: 6s;
+  }
 }
 
-/* 3D Flip Card */
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 200px;
-  perspective: 1000px;
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+  .animated-word__item {
+    animation: none !important;
+    opacity: 0;
+    transform: none;
+  }
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 0.75rem; /* rounded-xl */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.flip-card-front {
-  background-color: hsl(var(--card));
-  color: hsl(var(--card-foreground));
-}
-
-.flip-card-back {
-  background-color: hsl(var(--card));
-  color: hsl(var(--card-foreground));
-  transform: rotateY(180deg);
+  .animated-word__item:first-child {
+    opacity: 1;
+  }
 }

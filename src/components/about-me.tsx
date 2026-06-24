@@ -1,10 +1,9 @@
-'use client';
-
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from './ui/button';
 import { Linkedin, Download, Github } from 'lucide-react';
 import { Badge } from './ui/badge';
+import { siteConfig } from '@/lib/site-config';
 
 const skills = [
   'Python',
@@ -22,7 +21,7 @@ const skills = [
 export function AboutMe() {
   const avatar = PlaceHolderImages.find(p => p.id === 'developer-portrait');
   return (
-    <section id="about" className="relative py-12 md:py-24 lg:py-32 bg-card/50 overflow-hidden">
+    <section id="about" aria-labelledby="about-title" className="relative scroll-mt-16 overflow-hidden bg-card/50 py-12 md:py-24 lg:py-32">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 z-0 opacity-5">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_hsl(var(--primary)),_transparent_40%)]" />
@@ -33,9 +32,9 @@ export function AboutMe() {
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">
-                Uriel Emanuel Alejandro Capdevila
+                {siteConfig.fullName}
               </div>
-              <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary transition-transform duration-300 ease-in-out hover:scale-105">Conoce al Profesional detrás del Código</h2>
+              <h2 id="about-title" className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl text-primary">Conoce al profesional detrás del código</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
               Soy un desarrollador híbrido con una misión: transformar datos en soluciones de negocio y construir la tecnología que las impulsa.
               </p>
@@ -60,17 +59,17 @@ export function AboutMe() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Button asChild size="lg">
-                <a href="https://www.linkedin.com/in/uriel-capdevila0024/" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
                   <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href="https://github.com/UriCapdevila" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-5 w-5" /> GitHub
                 </a>
               </Button>
               <Button asChild size="lg" variant="ghost">
-                <a href="/URIELCAPDEVILACV.pdf" download>
+                <a href={siteConfig.links.resume} download>
                   <Download className="mr-2 h-5 w-5" /> Descargar CV
                 </a>
               </Button>
@@ -81,13 +80,13 @@ export function AboutMe() {
                 <div className="relative h-[300px] w-[300px] md:h-[400px] md:w-[400px]">
                     <Image
                     src={avatar.imageUrl}
-                    alt="Uriel Capdevila Portrait"
+                    alt="Retrato de Uriel Capdevila"
                     width={400}
                     height={400}
                     data-ai-hint={avatar.imageHint}
                     className="rounded-full object-cover aspect-square border-4 border-primary/20 shadow-lg shadow-primary/10"
                     />
-                    <div className="absolute inset-0 rounded-full border-4 border-primary/20 animate-pulse-slow"/>
+                    <div aria-hidden="true" className="absolute inset-0 rounded-full border-4 border-primary/20 animate-pulse-slow"/>
                 </div>
             )}
           </div>
