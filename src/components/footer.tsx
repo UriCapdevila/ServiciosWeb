@@ -1,41 +1,30 @@
-import { Button } from './ui/button';
-import { Github, Linkedin, MessageCircle, Mail } from 'lucide-react';
-import { Logo } from './logo';
-import { mailtoUrl, siteConfig } from '@/lib/site-config';
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Logo } from "./logo";
+import { mailtoUrl, siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const year = new Date().getFullYear();
-
   return (
-    <footer className="w-full py-8 border-t border-border/40 bg-background z-10">
-      <div className="container px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <Logo />
-          <p className="text-sm text-muted-foreground">
-            &copy; {year} {siteConfig.name}. Todos los derechos reservados.
-          </p>
+    <footer className="bg-foreground py-12 text-background">
+      <div className="container px-4 md:px-6">
+        <div className="grid gap-10 border-b border-background/15 pb-10 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <div className="flex items-center gap-3">
+              <Logo />
+              <div><p className="font-headline text-lg font-semibold">Terradata</p><p className="text-[9px] uppercase tracking-[0.2em] text-background/45">AI Solutions</p></div>
+            </div>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-background/65">Consultoría experta en Data, Desarrollo e IA. Diseñamos la arquitectura que tu organización necesita para avanzar.</p>
+          </div>
+          <a href={mailtoUrl} className="group flex items-center gap-3 font-headline text-xl font-semibold underline decoration-primary decoration-2 underline-offset-8">Iniciemos una conversación<ArrowUpRight aria-hidden="true" className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
-          <Button variant="ghost" size="icon" className="h-11 w-11" asChild>
-            <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github className="h-5 w-5 text-muted-foreground transition-colors hover:text-primary" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" className="h-11 w-11" asChild>
-            <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin className="h-5 w-5 text-muted-foreground transition-colors hover:text-primary" />
-            </a>
-          </Button>
-          <Button variant="outline" size="sm" className="h-11 sm:h-9" asChild>
-            <a href={siteConfig.links.whatsapp} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4 mr-2" /> WhatsApp
-            </a>
-          </Button>
-          <Button size="sm" className="h-11 sm:h-9" asChild>
-            <a href={mailtoUrl}>
-              <Mail className="h-4 w-4 mr-2" /> Email
-            </a>
-          </Button>
+        <div className="flex flex-col gap-5 pt-7 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} {siteConfig.name}. Buenos Aires, Argentina.</p>
+          <nav aria-label="Navegación del pie" className="flex flex-wrap gap-5">
+            <Link href="#services" className="hover:text-background">Servicios</Link>
+            <Link href="#approach" className="hover:text-background">Cómo trabajamos</Link>
+            <Link href="#firm" className="hover:text-background">La firma</Link>
+          </nav>
         </div>
       </div>
     </footer>

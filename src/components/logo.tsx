@@ -1,8 +1,14 @@
+import Image from "next/image";
+
 export function Logo() {
   return (
-    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary shadow-inner shadow-primary/50">
-      <span className="font-bold text-sm text-primary-foreground">UC</span>
-    </div>
-  )
+    <Image
+      src="/terradata-logo.svg"
+      alt=""
+      aria-hidden="true"
+      width={36}
+      height={36}
+      className="h-9 w-9 shrink-0 rounded-sm"
+    />
+  );
 }
-

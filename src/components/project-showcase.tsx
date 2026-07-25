@@ -1,120 +1,52 @@
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
-import { ArrowUpRight } from 'lucide-react';
-import { Card } from './ui/card';
+import { Check, MoveRight } from "lucide-react";
 
-type ProjectBase = {
-  id: number;
-  title: string;
-  description: string;
-  tags: readonly string[];
-  imageUrlId: string;
-};
+const steps = [
+  { number: "01", title: "Entender", description: "Alineamos el problema, las restricciones y el impacto esperado con quienes toman la decisión." },
+  { number: "02", title: "Priorizar", description: "Definimos una hoja de ruta realista, con alcance, riesgos y criterios de éxito explícitos." },
+  { number: "03", title: "Construir", description: "El equipo especialista implementa en ciclos cortos y comparte avances verificables." },
+  { number: "04", title: "Transferir y escalar", description: "Dejamos capacidad instalada, documentación y un siguiente paso claro para evolucionar." },
+] as const;
 
-type Project = ProjectBase & (
-  | { status: 'coming-soon' }
-  | { status: 'live'; liveUrl: string }
-);
-
-const projects = [
-  {
-    id: 1,
-    title: 'SaaS Dashboard',
-    description: 'Plataforma de análisis de datos para un cliente del sector financiero.',
-    tags: ['React', 'Next.js', 'Tailwind', 'D3.js'],
-    imageUrlId: 'project-1',
-    status: 'coming-soon',
-  },
-  {
-    id: 2,
-    title: 'E-commerce IA',
-    description: 'Tienda online con motor de recomendaciones personalizado.',
-    tags: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
-    imageUrlId: 'project-2',
-    status: 'coming-soon',
-  },
-  {
-    id: 3,
-    title: 'Modelo de Churn',
-    description: 'Sistema de predicción de abandono de clientes para una telco.',
-    tags: ['Scikit-learn', 'Pandas', 'Flask'],
-    imageUrlId: 'project-3',
-    status: 'coming-soon',
-  },
-  {
-    id: 4,
-    title: 'Web Comercial',
-    description: 'Sitio web de marketing para un emprendimiento de Amigurumis.',
-    tags: ['Next.js', 'Tailwind CSS', 'React'],
-    imageUrlId: 'project-4',
-    liveUrl: 'https://verotejiditosonline.netlify.app/',
-    status: 'live',
-  },
-] satisfies readonly Project[];
-
-const ProjectCard = ({ project }: { project: Project }) => {
-  const placeholder = PlaceHolderImages.find(p => p.id === project.imageUrlId);
-
-  return (
-    <Card
-      key={project.id}
-      className="overflow-hidden group border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 flex flex-col"
-    >
-      <div className="relative aspect-video overflow-hidden">
-        {placeholder && (
-          <Image
-            src={placeholder.imageUrl}
-            alt={project.title}
-            width={600}
-            height={400}
-            sizes="(min-width: 768px) 50vw, 100vw"
-            data-ai-hint={placeholder.imageHint}
-            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-          />
-        )}
-      </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold font-headline">{project.title}</h3>
-        <p className="text-muted-foreground mt-2 flex-grow">{project.description}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags.map(tag => (
-            <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">{tag}</Badge>
-          ))}
-        </div>
-        <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-4">
-          {project.status === 'coming-soon' ? (
-            <Button disabled className="flex-1">
-              Próximamente
-            </Button>
-          ) : (
-            <Button asChild className="flex-1">
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                Ver Proyecto <ArrowUpRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          )}
-        </div>
-      </div>
-    </Card>
-  );
-};
+const models = [
+  { title: "Sprint de diagnóstico", description: "Para ordenar un desafío y salir con decisiones accionables.", items: ["Mapa de situación", "Oportunidades priorizadas", "Roadmap recomendado"] },
+  { title: "Proyecto end-to-end", description: "Para diseñar e implementar una solución con un único equipo.", items: ["Liderazgo técnico", "Implementación iterativa", "Puesta en producción"] },
+  { title: "Equipo asociado", description: "Para sumar capacidades especialistas a una iniciativa en marcha.", items: ["Perfiles según necesidad", "Integración con tu equipo", "Objetivos compartidos"] },
+] as const;
 
 export function ProjectShowcase() {
   return (
-    <section id="projects" aria-labelledby="projects-title" className="scroll-mt-16 bg-card/50 py-12 md:py-24 lg:py-32">
+    <section id="approach" aria-labelledby="approach-title" className="scroll-mt-20 section-space">
       <div className="container px-4 md:px-6">
-        <div className="text-center space-y-3 mb-12">
-          <h2 id="projects-title" className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">Portafolio seleccionado</h2>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-            Una muestra de arquitecturas web escalables y sistemas de análisis de datos en producción.
-          </p>
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">Cómo trabajamos</p>
+            <h2 id="approach-title" className="section-title mt-5">Menos ceremonia. Más claridad y avance visible.</h2>
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">Cada iniciativa tiene un responsable senior y un equipo ajustado al desafío. Vos sabés qué estamos resolviendo, qué decidimos y qué sigue.</p>
+          </div>
+          <ol className="border-t border-foreground/20">
+            {steps.map(({ number, title, description }) => (
+              <li key={number} className="grid gap-4 border-b border-foreground/20 py-7 sm:grid-cols-[56px_180px_1fr] sm:items-start">
+                <span className="font-headline text-sm text-primary">{number}</span>
+                <h3 className="font-headline text-xl font-semibold">{title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map(project => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className="mt-20">
+          <div className="flex items-center gap-4"><h3 className="font-headline text-xl font-semibold">Formas de colaborar</h3><div className="h-px flex-1 bg-border" /></div>
+          <div className="mt-7 grid gap-5 lg:grid-cols-3">
+            {models.map(({ title, description, items }) => (
+              <article key={title} className="border border-border bg-card p-7 transition-transform duration-300 hover:-translate-y-1">
+                <MoveRight aria-hidden="true" className="h-6 w-6 text-primary" />
+                <h4 className="mt-8 font-headline text-2xl font-semibold">{title}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                <ul className="mt-7 space-y-3 border-t border-border pt-5">
+                  {items.map((item) => <li key={item} className="flex items-center gap-2 text-sm"><Check aria-hidden="true" className="h-4 w-4 text-primary" />{item}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
