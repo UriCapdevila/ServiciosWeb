@@ -1,7 +1,8 @@
-import { ArrowUpRight, Linkedin, Mail, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, FileText, Github, Linkedin, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import { TeamCarousel } from "./team-carousel";
-import { mailtoUrl, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 import { teamMembers } from "@/lib/team";
 
 const commitments = [
@@ -30,10 +31,10 @@ export function AboutMe() {
           <div>
             {showTeam && heading}
             <p className={`${showTeam ? "mt-7 " : ""}text-lg leading-relaxed text-muted-foreground`}>
-              Terradata AI Solutions nace para acortar la brecha entre la complejidad tecnológica y las necesidades reales de tu negocio. Nos enfocamos en crear soluciones intuitivas, asumiendo el compromiso desde la primera idea hasta el despliegue.
+              Terradata AI Solutions está dirigida por Uriel Capdevila, desarrollador Full Stack especializado en integrar software, datos e inteligencia artificial. Cada iniciativa comienza con dirección técnica visible y una definición compartida del problema.
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Lideramos cada iniciativa articulando especialistas en datos, automatización y desarrollo integral. Traducimos tus desafíos en un plan de acción claro, con el equipo técnico adecuado para cada nivel de complejidad.
+              Cuando el desafío requiere capacidades adicionales, articulamos un equipo ajustado al alcance. No trasladamos una estructura sobredimensionada: dejamos responsables, decisiones y entregables explícitos desde el inicio.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-3">
               {commitments.map((commitment) => (
@@ -41,12 +42,18 @@ export function AboutMe() {
               ))}
             </ul>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg"><a href={mailtoUrl}><Mail aria-hidden="true" />Escribinos</a></Button>
+              <Button asChild size="lg"><Link href="/contacto">Solicitá un diagnóstico<ArrowUpRight aria-hidden="true" /></Link></Button>
               <Button asChild size="lg" variant="outline">
                 <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin aria-hidden="true" />LinkedIn<ArrowUpRight aria-hidden="true" /></a>
               </Button>
               <Button asChild size="lg" variant="ghost">
                 <a href={siteConfig.links.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" />WhatsApp</a>
+              </Button>
+              <Button asChild size="lg" variant="ghost">
+                <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" />GitHub</a>
+              </Button>
+              <Button asChild size="lg" variant="ghost">
+                <a href={siteConfig.links.cv} target="_blank" rel="noopener noreferrer"><FileText aria-hidden="true" />Perfil profesional</a>
               </Button>
             </div>
           </div>

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Logo } from "./logo";
-import { mailtoUrl } from "@/lib/site-config";
 
 export function Header() {
   return (
@@ -28,17 +27,19 @@ export function Header() {
           aria-label="Navegación principal"
           className="ml-auto hidden items-center gap-7 lg:flex"
         >
-          <Link className="nav-link" href="#services">Servicios</Link>
-          <Link className="nav-link" href="#approach">Cómo trabajamos</Link>
-          <Link className="nav-link" href="#firm">La firma</Link>
+          <Link className="nav-link" href="/#services">Servicios</Link>
+          <Link className="nav-link" href="/#approach">Cómo trabajamos</Link>
+          <Link className="nav-link" href="/casos">Casos</Link>
+          <Link className="nav-link" href="/recursos">Recursos</Link>
+          <Link className="nav-link" href="/#firm">La firma</Link>
         </nav>
 
         <Button asChild className="ml-auto h-11 px-4 lg:ml-7">
-          <a href={mailtoUrl}>
+          <Link href="/contacto">
             <span className="hidden sm:inline">Conversemos</span>
             <span className="sm:hidden">Contacto</span>
             <ArrowUpRight aria-hidden="true" />
-          </a>
+          </Link>
         </Button>
       </div>
     </header>

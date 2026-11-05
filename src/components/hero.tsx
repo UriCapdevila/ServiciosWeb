@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "./ui/button";
-import { mailtoUrl } from "@/lib/site-config";
 
 const deliverySteps = [
   ["01", "Diagnóstico", "Contexto, prioridades y oportunidad real."],
@@ -18,22 +17,22 @@ export function Hero() {
         <div className="max-w-3xl">
           <p className="eyebrow">Consultoría de tecnología, datos e IA</p>
           <h1 id="hero-title" className="mt-6 max-w-4xl font-headline text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-            Convertimos complejidad tecnológica en{" "}
-            <span className="text-primary">decisiones y sistemas que hacen avanzar tu negocio.</span>
+            Automatizamos procesos y convertimos datos en{" "}
+            <span className="text-primary">sistemas que aceleran decisiones y trabajo.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Diseñamos e implementamos soluciones de datos, inteligencia artificial y software que se integran a tu organización. Lo hacemos con un equipo especializado, enfocado en generar impacto real en tu negocio.
+            Consultoría de datos, inteligencia artificial y software para organizaciones que necesitan ordenar una oportunidad, construir una solución e integrarla a su operación. Desde Buenos Aires, trabajamos con equipos de Argentina y Latinoamérica.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="h-12 px-6">
-              <a href={mailtoUrl}>Agendá una conversación <ArrowUpRight aria-hidden="true" /></a>
+              <Link href="/contacto">Solicitá un diagnóstico <ArrowUpRight aria-hidden="true" /></Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="h-12 border-foreground/20 bg-background/60 px-6">
               <Link href="#services">Explorar servicios <ArrowRight aria-hidden="true" /></Link>
             </Button>
           </div>
           <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-border/80 pt-6 text-sm text-muted-foreground">
-            {["Contacto directo con nosotros", "Un equipo comprometido con cada desafío", "Estrategia y ejecución"].map((item) => (
+            {["Dirección senior visible", "Alcance y entregables explícitos", "Estrategia e implementación"].map((item) => (
               <span key={item} className="flex items-center gap-2">
                 <Check aria-hidden="true" className="h-4 w-4 text-primary" />{item}
               </span>

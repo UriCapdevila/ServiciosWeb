@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { ValueProposition } from "@/components/value-proposition";
+import { ExperienceProof } from "@/components/experience-proof";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <ValueProposition />
         <FeaturedServices />
+        <ExperienceProof />
         <ProjectShowcase />
         <AboutMe />
       </main>

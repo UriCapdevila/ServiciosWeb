@@ -1,11 +1,12 @@
 import { ArrowUpRight, Blocks, Bot, ChartNoAxesCombined, CloudCog, Workflow } from "lucide-react";
+import Link from "next/link";
 
 const services = [
-  { Icon: ChartNoAxesCombined, code: "01", name: "Data & Analytics", description: "Arquitecturas, modelos y tableros que convierten datos dispersos en una fuente confiable para decidir.", capabilities: ["Data pipelines", "BI & dashboards", "Gobierno de datos"] },
-  { Icon: Bot, code: "02", name: "AI Solutions", description: "Casos de IA aplicados al negocio, desde asistentes y búsqueda inteligente hasta modelos predictivos.", capabilities: ["IA generativa", "Machine learning", "Prototipos aplicados"] },
-  { Icon: Workflow, code: "03", name: "Automatización", description: "Rediseñamos procesos e integramos sistemas para reducir tareas manuales, demoras y errores operativos.", capabilities: ["Integraciones", "Workflows", "Agentes y APIs"] },
-  { Icon: Blocks, code: "04", name: "Software a medida", description: "Productos y plataformas digitales construidos alrededor de tu operación, con bases listas para evolucionar.", capabilities: ["Aplicaciones web", "MVPs", "Sistemas internos"] },
-  { Icon: CloudCog, code: "05", name: "Modernización & Cloud", description: "Actualizamos aplicaciones y arquitectura para ganar estabilidad, velocidad y capacidad de escala.", capabilities: ["Arquitectura", "Migración", "Optimización"] },
+  { Icon: ChartNoAxesCombined, code: "01", name: "Datos y analítica", href: "/servicios/consultoria-datos-ia", description: "Arquitecturas, modelos y tableros que convierten datos dispersos en una fuente confiable para decidir.", capabilities: ["Pipelines de datos", "BI y tableros", "Gobierno de datos"] },
+  { Icon: Bot, code: "02", name: "Soluciones de IA", href: "/servicios/consultoria-datos-ia", description: "Casos de IA aplicados al negocio, desde asistentes y búsqueda inteligente hasta modelos predictivos.", capabilities: ["IA generativa", "Aprendizaje automático", "Prototipos aplicados"] },
+  { Icon: Workflow, code: "03", name: "Automatización", href: "/servicios/automatizacion-procesos", description: "Rediseñamos procesos e integramos sistemas para reducir tareas manuales, demoras y errores operativos.", capabilities: ["Integraciones", "Flujos de trabajo", "Agentes y APIs"] },
+  { Icon: Blocks, code: "04", name: "Software a medida", href: "/servicios/desarrollo-software-medida", description: "Productos y plataformas digitales construidos alrededor de tu operación, con bases listas para evolucionar.", capabilities: ["Aplicaciones web", "MVPs", "Sistemas internos"] },
+  { Icon: CloudCog, code: "05", name: "Modernización y nube", href: "/contacto?servicio=modernizacion", description: "Actualizamos aplicaciones y arquitectura para ganar estabilidad, velocidad y capacidad de escala.", capabilities: ["Arquitectura", "Migración", "Optimización"] },
 ] as const;
 
 export function FeaturedServices() {
@@ -20,8 +21,9 @@ export function FeaturedServices() {
           <p className="max-w-md text-base leading-relaxed text-background/60">Entramos donde está el cuello de botella y conectamos estrategia, datos e implementación para llegar a un resultado utilizable.</p>
         </div>
         <div className="mt-14 grid border-l border-t border-background/15 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ Icon, code, name, description, capabilities }) => (
-            <article key={name} className="group min-h-[330px] border-b border-r border-background/15 p-7 transition-colors hover:bg-background/[0.04]">
+          {services.map(({ Icon, code, name, href, description, capabilities }) => (
+            <Link key={name} href={href} className="group block min-h-[330px] border-b border-r border-background/15 p-7 transition-colors hover:bg-background/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary" aria-label={`${name}: conocer el servicio`}>
+              <article>
               <div className="flex items-start justify-between">
                 <span className="font-headline text-xs text-background/40">{code}</span>
                 <ArrowUpRight aria-hidden="true" className="h-5 w-5 text-background/30 transition-colors group-hover:text-primary" />
@@ -32,7 +34,8 @@ export function FeaturedServices() {
               <ul className="mt-6 flex flex-wrap gap-2">
                 {capabilities.map((capability) => <li key={capability} className="border border-background/15 px-2.5 py-1 text-[11px] text-background/65">{capability}</li>)}
               </ul>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </div>
