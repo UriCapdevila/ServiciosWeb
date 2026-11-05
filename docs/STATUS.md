@@ -4,11 +4,11 @@ Last updated: 2026-11-05
 
 ## Current phase
 
-`PRODUCTION_DEPLOYMENT` — `IN_PROGRESS`
+`PRODUCTION_DEPLOYMENT` — `DONE`
 
 Harness, technical SEO, information architecture, conversion, organic content
-and browser QA are implemented as stable, verified blocks. The owner approved
-direct publication to `main`; GitHub and Netlify verification are in progress.
+and browser QA are implemented as stable, verified blocks. GitHub Actions and
+the corrected Netlify production deployment are verified.
 
 ## Completed
 
@@ -38,11 +38,14 @@ direct publication to `main`; GitHub and Netlify verification are in progress.
 - [x] Publish `ed7b093` to `main` and pass GitHub Actions repository verification.
 - [x] Diagnose the first Netlify deploy failure as the documented Runtime v5
   Forms migration check, with the previously published production kept intact.
+- [x] Publish the Netlify Forms migration as `58c3327`; deploy
+  `6aecdc8ceb931ccb3875c173` completed successfully.
+- [x] Verify all public routes and the static Forms endpoint return `200`, the
+  new metadata is active and Netlify form detection is enabled.
 
 ## In progress
 
-- [ ] Publish the Netlify Forms migration and verify the corrected production
-  deployment, contact route and static detection endpoint.
+- [ ] None. Claim a new phase in `docs/EXECUTION_PLAN.md` before editing.
 
 ## Pending
 
@@ -79,3 +82,6 @@ Record the latest full run here when implementation phases complete:
 | 2026-11-05 | `ed7b093` on `main` | GitHub Actions `Repository verification` | PASS — workflow 42095803454 |
 | 2026-11-05 | Netlify deploy `6aecdb2be037247b2f2713b6` | Next.js Runtime v5 | FAIL — static Forms migration required; production unchanged |
 | 2026-11-05 | Netlify Forms migration | `npm run verify` | PASS — static detection endpoint, lint, types, SEO and build |
+| 2026-11-05 | `58c3327` on `main` | GitHub Actions `Repository verification` | PASS — workflow 42096720286 |
+| 2026-11-05 | Netlify deploy `6aecdc8ceb931ccb3875c173` | Production deploy | PASS — published in 59s |
+| 2026-11-05 | production routes | HTTP and Chrome extension QA | PASS — all public routes 200, current metadata, no horizontal overflow |

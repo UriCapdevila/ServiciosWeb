@@ -88,7 +88,7 @@ Acceptance:
 - [x] Status and decision logs reflect the delivered state.
 - [x] Deployment is performed only after explicit owner approval.
 
-## Phase 7 — Production deployment (`IN_PROGRESS`)
+## Phase 7 — Production deployment (`DONE`)
 
 Goal: publish the verified release through `main` and confirm the Netlify result.
 
@@ -97,4 +97,5 @@ Acceptance:
 - [x] The owner approved direct publication to `main` on 2026-11-05.
 - [x] Push the verified commit to `main` without rewriting remote history.
 - [x] Confirm GitHub Actions passes for the published commit.
-- [ ] Confirm Netlify serves the new routes and production metadata.
+- [x] Confirm Netlify serves the new routes, production metadata and static Forms
+  detection endpoint.
