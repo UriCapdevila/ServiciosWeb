@@ -32,6 +32,7 @@ const layout = await readRequired("src/app/layout.tsx");
 const robots = await readRequired("src/app/robots.ts");
 const sitemap = await readRequired("src/app/sitemap.ts");
 const services = await readRequired("src/lib/services.ts");
+const solutions = await readRequired("src/lib/solutions.ts");
 
 requirePattern(layout, /metadataBase\s*:/, "Root metadata must define metadataBase.");
 requirePattern(layout, /alternates\s*:/, "Root metadata must define canonical alternates.");
@@ -39,9 +40,11 @@ requirePattern(layout, /openGraph\s*:/, "Root metadata must define Open Graph da
 requirePattern(robots, /MetadataRoute\.Robots/, "robots.ts must return MetadataRoute.Robots.");
 requirePattern(sitemap, /MetadataRoute\.Sitemap/, "sitemap.ts must return MetadataRoute.Sitemap.");
 requirePattern(sitemap, /primaryServices\.map/, "sitemap.ts must include every primary service.");
+requirePattern(sitemap, /publicSolutions\.map/, "sitemap.ts must include every public solution.");
 requirePattern(sitemap, /\/contacto/, "sitemap.ts must include the contact route.");
 requirePattern(sitemap, /\/casos/, "sitemap.ts must include the cases route.");
 requirePattern(sitemap, /\/recursos/, "sitemap.ts must include the resources routes.");
+requirePattern(sitemap, /\/soluciones/, "sitemap.ts must include the solutions hub.");
 
 for (const slug of services.matchAll(/slug:\s*["']([^"']+)["']/g)) {
   const route = path.join("src", "app", "servicios", slug[1], "page.tsx");
@@ -49,6 +52,15 @@ for (const slug of services.matchAll(/slug:\s*["']([^"']+)["']/g)) {
     await access(route, constants.R_OK);
   } catch {
     errors.push(`Missing service route for configured slug: ${slug[1]}`);
+  }
+}
+
+for (const slug of solutions.matchAll(/slug:\s*["']([^"']+)["']/g)) {
+  const route = path.join("src", "app", "soluciones", slug[1], "page.tsx");
+  try {
+    await access(route, constants.R_OK);
+  } catch {
+    errors.push(`Missing solution route for configured slug: ${slug[1]}`);
   }
 }
 

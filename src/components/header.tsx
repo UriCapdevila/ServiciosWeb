@@ -28,6 +28,7 @@ export function Header() {
           className="ml-auto hidden items-center gap-7 lg:flex"
         >
           <Link className="nav-link" href="/#services">Servicios</Link>
+          <Link className="nav-link" href="/soluciones">Soluciones</Link>
           <Link className="nav-link" href="/#approach">Cómo trabajamos</Link>
           <Link className="nav-link" href="/casos">Casos</Link>
           <Link className="nav-link" href="/recursos">Recursos</Link>

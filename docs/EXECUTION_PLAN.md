@@ -99,3 +99,20 @@ Acceptance:
 - [x] Confirm GitHub Actions passes for the published commit.
 - [x] Confirm Netlify serves the new routes, production metadata and static Forms
   detection endpoint.
+
+## Phase 8 — Product portfolio foundation (`DONE`)
+
+Goal: present the owner's in-development solutions without exposing unregistered
+product names, private repositories or unsupported commercial claims.
+
+Acceptance:
+
+- [x] Define neutral, problem-led public names and maturity labels for three
+  solutions: knowledge assistance, financial organization and gesture control.
+- [x] Add an indexable solutions hub and one substantive route per solution.
+- [x] Distinguish pilot-ready, in-development and technical-case maturity in
+  visible copy and calls to action.
+- [x] Add the solutions hub to primary navigation and surface the portfolio on
+  the homepage.
+- [x] Include every public solution route in the sitemap and SEO contract.
+- [x] Pass `npm run verify` before marking the phase complete.

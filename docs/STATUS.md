@@ -4,11 +4,11 @@ Last updated: 2026-11-05
 
 ## Current phase
 
-`PRODUCTION_DEPLOYMENT` — `DONE`
+`PRODUCT_PORTFOLIO_FOUNDATION` — `DONE`
 
-Harness, technical SEO, information architecture, conversion, organic content
-and browser QA are implemented as stable, verified blocks. GitHub Actions and
-the corrected Netlify production deployment are verified.
+The verified production foundation remains stable. Three owner-built solutions
+are now presented under generic public names so future product registration is
+not pre-empted by the marketing site.
 
 ## Completed
 
@@ -42,6 +42,14 @@ the corrected Netlify production deployment are verified.
   `6aecdc8ceb931ccb3875c173` completed successfully.
 - [x] Verify all public routes and the static Forms endpoint return `200`, the
   new metadata is active and Netlify form detection is enabled.
+- [x] Add a solutions hub and detailed pages for knowledge assistance,
+  financial organization and gesture-controlled learning.
+- [x] Label each solution by its real maturity: pilot available, prototype in
+  development or technology case.
+- [x] Keep internal names, private repository details and the discarded
+  medical-imaging research project out of public copy.
+- [x] Verify the new portfolio on desktop and mobile with no horizontal
+  overflow, exposed internal names or observed console errors.
 
 ## In progress
 
@@ -85,3 +93,5 @@ Record the latest full run here when implementation phases complete:
 | 2026-11-05 | `58c3327` on `main` | GitHub Actions `Repository verification` | PASS — workflow 42096720286 |
 | 2026-11-05 | Netlify deploy `6aecdc8ceb931ccb3875c173` | Production deploy | PASS — published in 59s |
 | 2026-11-05 | production routes | HTTP and Chrome extension QA | PASS — all public routes 200, current metadata, no horizontal overflow |
+| 2026-11-05 | product portfolio foundation | `npm run verify` | PASS — lint, types, SEO contract and 18-page production build |
+| 2026-11-05 | portfolio routes | desktop/mobile browser QA | PASS — responsive navigation, zero overflow, no internal names and no console warnings/errors |

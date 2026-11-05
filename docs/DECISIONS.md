@@ -52,3 +52,13 @@ through React. The deploy-time schema therefore lives in `public/__forms.html`,
 while the accessible React form posts URL-encoded data to that static endpoint
 and redirects successful submissions to `/gracias`. The harness verifies both
 halves so a future refactor cannot silently break form detection or deployment.
+
+## ADR-007 — Product portfolio uses generic public names
+
+**Status:** Accepted — 2026-11-05
+
+The owner has not yet registered the names of the products under development.
+The public site therefore uses neutral, problem-led names and excludes internal
+project names, private repository links and the discarded medical-imaging
+research project. Maturity labels must remain visible so a prototype or
+technology case is not represented as a production-ready product.

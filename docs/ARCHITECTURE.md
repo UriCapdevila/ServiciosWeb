@@ -36,6 +36,9 @@ secret for public marketing pages.
    not depend on them.
 6. The canonical origin is centralized so a future domain migration is one
    configuration change rather than a search-and-replace operation.
+7. Public solution names and maturity labels live in `src/lib/solutions.ts`.
+   Public copy must not reveal internal product names or private repository
+   details until the owner explicitly changes that policy.
 
 ## Verification model
 

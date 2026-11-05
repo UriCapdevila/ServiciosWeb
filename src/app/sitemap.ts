@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { primaryServices, servicePath } from "@/lib/services";
+import { publicSolutions, solutionPath } from "@/lib/solutions";
 
 const lastModified = new Date("2026-11-05");
 
@@ -17,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${siteConfig.url}/soluciones`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${siteConfig.url}/contacto`,
@@ -45,5 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  const solutionRoutes: MetadataRoute.Sitemap = publicSolutions.map((solution) => ({
+    url: `${siteConfig.url}${solutionPath(solution)}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...solutionRoutes];
 }

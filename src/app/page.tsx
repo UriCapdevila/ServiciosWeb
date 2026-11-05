@@ -6,6 +6,7 @@ import { Hero } from "@/components/hero";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { ValueProposition } from "@/components/value-proposition";
 import { ExperienceProof } from "@/components/experience-proof";
+import { SolutionPortfolio } from "@/components/solution-portfolio";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <ValueProposition />
         <FeaturedServices />
+        <SolutionPortfolio />
         <ExperienceProof />
         <ProjectShowcase />
         <AboutMe />
