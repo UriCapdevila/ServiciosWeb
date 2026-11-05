@@ -95,6 +95,6 @@ Goal: publish the verified release through `main` and confirm the Netlify result
 Acceptance:
 
 - [x] The owner approved direct publication to `main` on 2026-11-05.
-- [ ] Push the verified commit to `main` without rewriting remote history.
-- [ ] Confirm GitHub Actions passes for the published commit.
+- [x] Push the verified commit to `main` without rewriting remote history.
+- [x] Confirm GitHub Actions passes for the published commit.
 - [ ] Confirm Netlify serves the new routes and production metadata.

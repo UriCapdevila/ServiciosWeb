@@ -10,6 +10,7 @@ const requiredFiles = [
   ".github/workflows/ci.yml",
   "scripts/verify-harness.mjs",
   "scripts/verify-seo.mjs",
+  "public/__forms.html",
 ];
 
 const errors = [];
@@ -36,6 +37,22 @@ for (const section of ["## Completed", "## In progress", "## Pending", "## Known
   if (!status.includes(section)) {
     errors.push(`docs/STATUS.md is missing section: ${section}`);
   }
+}
+
+const staticForm = await readFile("public/__forms.html", "utf8");
+for (const marker of ['name="contacto"', 'data-netlify="true"', 'name="form-name"']) {
+  if (!staticForm.includes(marker)) {
+    errors.push(`public/__forms.html is missing Netlify Forms marker: ${marker}`);
+  }
+}
+
+const interactiveForm = await readFile("src/components/contact-form.tsx", "utf8");
+if (interactiveForm.includes("data-netlify")) {
+  errors.push("The React contact form must not declare data-netlify; detection belongs in public/__forms.html");
+}
+
+if (!interactiveForm.includes('action="/__forms.html"')) {
+  errors.push("The React contact form must submit to the static Netlify Forms endpoint");
 }
 
 if (errors.length > 0) {

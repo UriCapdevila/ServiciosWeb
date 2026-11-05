@@ -35,11 +35,14 @@ direct publication to `main`; GitHub and Netlify verification are in progress.
   keyboard skip-link focus, contact form structure and zero observed console
   warnings/errors.
 - [x] Verify rendered `robots.txt` and sitemap coverage for all indexable routes.
+- [x] Publish `ed7b093` to `main` and pass GitHub Actions repository verification.
+- [x] Diagnose the first Netlify deploy failure as the documented Runtime v5
+  Forms migration check, with the previously published production kept intact.
 
 ## In progress
 
-- [ ] Publish the verified release through `main`, confirm GitHub Actions, and
-  verify the resulting Netlify production deployment.
+- [ ] Publish the Netlify Forms migration and verify the corrected production
+  deployment, contact route and static detection endpoint.
 
 ## Pending
 
@@ -73,3 +76,6 @@ Record the latest full run here when implementation phases complete:
 | 2026-11-05 | harness foundation | `npm audit fix` | 109 initial advisories reduced to 8 transitive advisories |
 | 2026-11-05 | integrated branch | `npm run verify` | PASS — lint, typecheck, SEO contract and 14-page production build |
 | 2026-11-05 | local production server | Chrome extension QA | PASS — desktop/mobile, metadata, routes, focus, form, console, robots and sitemap |
+| 2026-11-05 | `ed7b093` on `main` | GitHub Actions `Repository verification` | PASS — workflow 42095803454 |
+| 2026-11-05 | Netlify deploy `6aecdb2be037247b2f2713b6` | Next.js Runtime v5 | FAIL — static Forms migration required; production unchanged |
+| 2026-11-05 | Netlify Forms migration | `npm run verify` | PASS — static detection endpoint, lint, types, SEO and build |

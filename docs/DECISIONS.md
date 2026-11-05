@@ -42,3 +42,13 @@ The isolated Genkit scaffold, its CLI scripts, `dotenv`, AI dependencies and
 `apphosting.yaml` were removed. This reduces install size, audit surface and
 maintenance noise. A future AI-backed product feature must be introduced as a
 new, scoped architecture decision with explicit runtime and secret handling.
+
+## ADR-006 — Netlify Forms uses a static detection endpoint
+
+**Status:** Accepted — 2026-11-05
+
+Netlify's Next.js Runtime v5 does not discover form declarations rendered only
+through React. The deploy-time schema therefore lives in `public/__forms.html`,
+while the accessible React form posts URL-encoded data to that static endpoint
+and redirects successful submissions to `/gracias`. The harness verifies both
+halves so a future refactor cannot silently break form detection or deployment.
