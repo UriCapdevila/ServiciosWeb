@@ -22,6 +22,7 @@ export function Footer() {
           <p>© {year} {siteConfig.name}. Buenos Aires, Argentina.</p>
           <nav aria-label="Navegación del pie" className="flex flex-wrap gap-5">
             <Link href="#services" className="hover:text-background">Servicios</Link>
+            <Link href="#experience" className="hover:text-background">Experiencia</Link>
             <Link href="#approach" className="hover:text-background">Cómo trabajamos</Link>
             <Link href="#firm" className="hover:text-background">La firma</Link>
           </nav>

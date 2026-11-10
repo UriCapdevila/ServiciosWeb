@@ -1,5 +1,6 @@
 import { AboutMe } from "@/components/about-me";
 import { FeaturedServices } from "@/components/featured-services";
+import { ExperienceLab } from "@/components/experience-lab";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <ValueProposition />
         <FeaturedServices />
+        <ExperienceLab />
         <ProjectShowcase />
         <AboutMe />
       </main>
